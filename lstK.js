@@ -22,8 +22,8 @@ function functionLSTKolkata() {
             name: "2018",
             color: "#4F81BC",
             dataPoints: [
-                { y: 15436.73, label: "Terra" },
-                { y: 15521.46, label: "Aqua" }
+                { y: 308.73, label: "Terra" },
+                { y: 310.43, label: "Aqua" }
             ]
         },
         {
@@ -33,8 +33,8 @@ function functionLSTKolkata() {
             color: "#C0504E",
             dataPoints: [
 
-                { y: 15419.69, label: "Terra" },
-                { y: 15584, label: "Aqua" }
+                { y: 308.39, label: "Terra" },
+                { y: 311.68, label: "Aqua" }
             ]
         },
         {
@@ -44,8 +44,8 @@ function functionLSTKolkata() {
             color: "#9ed932",
             dataPoints: [
 
-                { y: 15564.15, label: "Terra" },
-                { y: 15785.82, label: "Aqua" }
+                { y: 311.28, label: "Terra" },
+                { y: 314.72, label: "Aqua" }
             ]
         }]
     });
