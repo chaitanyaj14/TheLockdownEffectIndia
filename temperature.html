@@ -63,6 +63,15 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-container>div {
+            height: 400px;
+            width: 400px;
+        }
     </style>
 
 
@@ -111,7 +120,7 @@
     <div class="container-fluid mt-3">
         <!-- Side Pills -->
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
                         aria-controls="v-pills-home" aria-selected="true">Temperature NEX-GDDP</a>
@@ -119,7 +128,7 @@
                         aria-controls="v-pills-tempLST" aria-selected="false">Land Surface Temperature</a>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-10">
                 <div class="tab-content" id="v-pills-tabContent">
                     <!-- Temperature Predicted NASA -->
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
@@ -156,156 +165,132 @@
                                     </div>
                                     <div class="tab-pane fade" id="analysis" role="tabpanel"
                                         aria-labelledby="analysis-tab" style="align-content: center;">
-                                        <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <h2>Delhi</h2>
-                                                    <svg id="test1" class="mypiechart"
-                                                        style="padding-left: 250px;"></svg>
+                                        <div >
+                                            <div class="flex-container">
+                                                <h2>Delhi</h2>
+                                                <svg id="test1" class="mypiechart"></svg>
 
-                                                    <script>
-                                                        var Delhi = [
-                                                            { key: "2018", y: 306.97, color: "#5F5" },
-                                                            { key: "2019", y: 306.98 },
-                                                            { key: "2020", y: 307.17 }
-                                                        ];
+                                                <script>
+                                                    var Delhi = [
+                                                        { key: "2018", y: 306.97, color: "#5F5" },
+                                                        { key: "2019", y: 306.98 },
+                                                        { key: "2020", y: 307.17 }
+                                                    ];
+                                                    nv.addGraph(function () {
+                                                        var chart = nv.models.pieChart()
+                                                            .x(function (d) { return d.key })
+                                                            .y(function (d) { return d.y })
+                                                            .width(width)
+                                                            .height(height)
+                                                            .showTooltipPercent(true);
 
-                                                        var height = 350;
-                                                        var width = 750;
+                                                        d3.select("#test1")
+                                                            .datum(Delhi)
+                                                            .transition().duration(1200)
+                                                            .attr('width', width)
+                                                            .attr('height', height)
+                                                            .call(chart);
 
-                                                        nv.addGraph(function () {
-                                                            var chart = nv.models.pieChart()
-                                                                .x(function (d) { return d.key })
-                                                                .y(function (d) { return d.y })
-                                                                .width(width)
-                                                                .height(height)
-                                                                .showTooltipPercent(true);
+                                                        return chart;
+                                                    });
+                                                </script>
+                                                <h2>Mumbai</h2>
+                                                <svg id="test2" class="mypiechart" style="padding-left: 10px;"></svg>
 
-                                                            d3.select("#test1")
-                                                                .datum(Delhi)
-                                                                .transition().duration(1200)
-                                                                .attr('width', width)
-                                                                .attr('height', height)
-                                                                .call(chart);
+                                                <script>
+                                                    var Mumbai = [
+                                                        { key: "2018", y: 306.06, color: "#5F5" },
+                                                        { key: "2019", y: 305.92 },
+                                                        { key: "2020", y: 306.10 }
+                                                    ];
 
-                                                            return chart;
-                                                        });
-                                                    </script>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <h2>Mumbai</h2>
-                                                    <svg id="test2" class="mypiechart"
-                                                        style="padding-left: 250px;"></svg>
+                                                    nv.addGraph(function () {
+                                                        var chart = nv.models.pieChart()
+                                                            .x(function (d) { return d.key })
+                                                            .y(function (d) { return d.y })
+                                                            .width(width)
+                                                            .height(height)
+                                                            .showTooltipPercent(true);
 
-                                                    <script>
-                                                        var Mumbai = [
-                                                            { key: "2018", y: 306.06, color: "#5F5" },
-                                                            { key: "2019", y: 305.92 },
-                                                            { key: "2020", y: 306.10 }
-                                                        ];
+                                                        d3.select("#test2")
+                                                            .datum(Mumbai)
+                                                            .transition().duration(1200)
+                                                            .attr('width', width)
+                                                            .attr('height', height)
+                                                            .call(chart);
 
-                                                        var height = 350;
-                                                        var width = 350;
-
-                                                        nv.addGraph(function () {
-                                                            var chart = nv.models.pieChart()
-                                                                .x(function (d) { return d.key })
-                                                                .y(function (d) { return d.y })
-                                                                .width(width)
-                                                                .height(height)
-                                                                .showTooltipPercent(true);
-
-                                                            d3.select("#test2")
-                                                                .datum(Mumbai)
-                                                                .transition().duration(1200)
-                                                                .attr('width', width)
-                                                                .attr('height', height)
-                                                                .call(chart);
-
-                                                            return chart;
-                                                        });
-                                                    </script>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <h2>Kolkata</h2>
-                                                    <svg id="test3" class="mypiechart"
-                                                        style="padding-left: 250px;"></svg>
-
-                                                    <script>
-                                                        var Kolkata = [
-                                                            { key: "2018", y: 309.09, color: "#5F5" },
-                                                            { key: "2019", y: 309.21 },
-                                                            { key: "2020", y: 309.22 }
-                                                        ];
-
-                                                        var height = 350;
-                                                        var width = 350;
-
-                                                        nv.addGraph(function () {
-                                                            var chart = nv.models.pieChart()
-                                                                .x(function (d) { return d.key })
-                                                                .y(function (d) { return d.y })
-                                                                .width(width)
-                                                                .height(height)
-                                                                .showTooltipPercent(true);
-
-                                                            d3.select("#test3")
-                                                                .datum(Kolkata)
-                                                                .transition().duration(1200)
-                                                                .attr('width', width)
-                                                                .attr('height', height)
-                                                                .call(chart);
-
-                                                            return chart;
-                                                        });
-                                                    </script>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <h2>Chennai</h2>
-                                                    <svg id="test4" class="mypiechart"
-                                                        style="padding-left: 250px;"></svg>
-
-                                                    <script>
-                                                        var Chennai = [
-                                                            { key: "2018", y: 307.60, color: "#5F5" },
-                                                            { key: "2019", y: 307.67 },
-                                                            { key: "2020", y: 307.74 }
-                                                        ];
-
-                                                        var height = 350;
-                                                        var width = 350;
-
-                                                        nv.addGraph(function () {
-                                                            var chart = nv.models.pieChart()
-                                                                .x(function (d) { return d.key })
-                                                                .y(function (d) { return d.y })
-                                                                .width(width)
-                                                                .height(height)
-                                                                .showTooltipPercent(true);
-
-                                                            d3.select("#test4")
-                                                                .datum(Chennai)
-                                                                .transition().duration(1200)
-                                                                .attr('width', width)
-                                                                .attr('height', height)
-                                                                .call(chart);
-
-                                                            return chart;
-                                                        });
-                                                    </script>
-                                                </div>
+                                                        return chart;
+                                                    });
+                                                </script>
                                             </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleControls1"
-                                                role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls1"
-                                                role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                                            <br><br>
+                                            <div class="flex-container">
+
+                                                <h2>Kolkata</h2>
+                                                <svg id="test3" class="mypiechart"></svg>
+
+                                                <script>
+                                                    var Kolkata = [
+                                                        { key: "2018", y: 309.09, color: "#5F5" },
+                                                        { key: "2019", y: 309.21 },
+                                                        { key: "2020", y: 309.22 }
+                                                    ];
+
+                                                    nv.addGraph(function () {
+                                                        var chart = nv.models.pieChart()
+                                                            .x(function (d) { return d.key })
+                                                            .y(function (d) { return d.y })
+                                                            .width(width)
+                                                            .height(height)
+                                                            .showTooltipPercent(true);
+
+                                                        d3.select("#test3")
+                                                            .datum(Kolkata)
+                                                            .transition().duration(1200)
+                                                            .attr('width', width)
+                                                            .attr('height', height)
+                                                            .call(chart);
+
+                                                        return chart;
+                                                    });
+                                                </script>
+                                                <h2>Chennai</h2>
+                                                <svg id="test4" class="mypiechart" style="padding-left: 10px;"></svg>
+
+                                                <script>
+                                                    var Chennai = [
+                                                        { key: "2018", y: 307.60, color: "#5F5" },
+                                                        { key: "2019", y: 307.67 },
+                                                        { key: "2020", y: 307.74 }
+                                                    ];
+
+                                                    var height = 350;
+                                                    var width = 350;
+
+                                                    nv.addGraph(function () {
+                                                        var chart = nv.models.pieChart()
+                                                            .x(function (d) { return d.key })
+                                                            .y(function (d) { return d.y })
+                                                            .width(width)
+                                                            .height(height)
+                                                            .showTooltipPercent(true);
+
+                                                        d3.select("#test4")
+                                                            .datum(Chennai)
+                                                            .transition().duration(1200)
+                                                            .attr('width', width)
+                                                            .attr('height', height)
+                                                            .call(chart);
+
+                                                        return chart;
+                                                    });
+                                                </script>
+                                            </div>
+
+
                                         </div>
+
+
 
                                     </div>
                                     <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
@@ -417,33 +402,19 @@
                                     <div class="tab-pane fade" id="analysisLST" role="tabpanel"
                                         aria-labelledby="analysis-tab">
                                         <p></p>
-                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner" data-interval="false">
-                                                <div class="carousel-item active">
-                                                    <div id="chartContainerDelhi" style="height: 400px; ">
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div id="chartContainerMumbai" style="height: 400px;"></div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div id="chartContainerKolkata" style="height: 400px;"></div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div id="chartContainerChennai" style="height: 400px;"></div>
-                                                </div>
+                                        <div>
+                                            <div class="flex-container">
+                                                <div id="chartContainerDelhi"></div>
+                                                <div id="chartContainerMumbai" style="margin-left: 100px;"></div>
                                             </div>
-                                            <a class=" carousel-control-prev" href="#carouselExampleControls"
-                                                role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls"
-                                                role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                                            <br><br>
+                                            <div class="flex-container">
+                                                <div id="chartContainerKolkata"></div>
+                                                <div id="chartContainerChennai" style="margin-left: 100px;"></div>
+                                            </div>
+
                                         </div>
+
                                         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                                     </div>
                                     <div class="tab-pane fade" id="dataLST" role="tabpanel" aria-labelledby="data-tab">
@@ -473,39 +444,39 @@
                                             <tbody>
                                                 <tr>
                                                     <th scope="row">Delhi</th>
-                                                    <td>15264.44</td>
-                                                    <td>15323.14</td>
-                                                    <td>15347.61</td>
-                                                    <td>15434.89</td>
-                                                    <td>15507.38</td>
-                                                    <td>15534.41</td>
+                                                    <td>306.95</td>
+                                                    <td>306.46</td>
+                                                    <td>305.29</td>
+                                                    <td>310.69</td>
+                                                    <td>310.15</td>
+                                                    <td>308.70</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Mumbai</th>
-                                                    <td>15617.78</td>
-                                                    <td>15591.6</td>
-                                                    <td>15564</td>
-                                                    <td>15843.04</td>
-                                                    <td>15864.62</td>
-                                                    <td>15819.59</td>
+                                                    <td>312.36</td>
+                                                    <td>311.83</td>
+                                                    <td>311.28</td>
+                                                    <td>316.86</td>
+                                                    <td>317.29</td>
+                                                    <td>316.39</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Kolkata</th>
-                                                    <td>15564.15</td>
-                                                    <td>15419.69</td>
-                                                    <td>15436.73</td>
-                                                    <td>15785.82</td>
-                                                    <td>15584</td>
-                                                    <td>15521.46</td>
+                                                    <td>308.73</td>
+                                                    <td>308.39</td>
+                                                    <td>311.28</td>
+                                                    <td>310.43</td>
+                                                    <td>311.68</td>
+                                                    <td>314.72</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Chennai</th>
-                                                    <td>15536</td>
-                                                    <td>15549.6</td>
-                                                    <td>15531.66</td>
-                                                    <td>15752.6</td>
-                                                    <td>15728.16</td>
-                                                    <td>15664.36</td>
+                                                    <td>310.63</td>
+                                                    <td>310.98</td>
+                                                    <td>310.72</td>
+                                                    <td>313.28</td>
+                                                    <td>314.56</td>
+                                                    <td>315.05</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -605,7 +576,7 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
 
 
