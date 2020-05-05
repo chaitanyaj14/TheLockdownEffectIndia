@@ -22,8 +22,8 @@ function functionLSTMumbai() {
             name: "2018",
             color: "#4F81BC",
             dataPoints: [
-                { y: 15564, label: "Terra" },
-                { y: 15819.59, label: "Aqua" }
+                { y: 312.36, label: "Terra" },
+                { y: 316.86, label: "Aqua" }
             ]
         },
         {
@@ -33,8 +33,8 @@ function functionLSTMumbai() {
             color: "#C0504E",
             dataPoints: [
 
-                { y: 15591.6, label: "Terra" },
-                { y: 15864.62, label: "Aqua" }
+                { y: 311.83, label: "Terra" },
+                { y: 317.29, label: "Aqua" }
             ]
         },
         {
@@ -44,8 +44,8 @@ function functionLSTMumbai() {
             color: "#9ed932",
             dataPoints: [
 
-                { y: 15617.78, label: "Terra" },
-                { y: 15843.04, label: "Aqua" }
+                { y: 311.28, label: "Terra" },
+                { y: 316.39, label: "Aqua" }
             ]
         }]
     });
