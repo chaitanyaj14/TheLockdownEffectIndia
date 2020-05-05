@@ -22,8 +22,8 @@ function functionLSTDelhi() {
             name: "2018",
             color: "#4F81BC",
             dataPoints: [
-                { y: 15347.61, label: "Terra" },
-                { y: 15534.41, label: "Aqua" }
+                { y: 306.95, label: "Terra" },
+                { y: 310.69, label: "Aqua" }
             ]
         },
         {
@@ -33,8 +33,8 @@ function functionLSTDelhi() {
             color: "#C0504E",
             dataPoints: [
 
-                { y: 15323.14, label: "Terra" },
-                { y: 15507.38, label: "Aqua" }
+                { y: 306.46, label: "Terra" },
+                { y: 310.15, label: "Aqua" }
             ]
         },
         {
@@ -44,8 +44,8 @@ function functionLSTDelhi() {
             color: "#9ed932",
             dataPoints: [
 
-                { y: 15264.44, label: "Terra" },
-                { y: 15434.89, label: "Aqua" }
+                { y: 305.29, label: "Terra" },
+                { y: 308.70, label: "Aqua" }
             ]
         }]
     });
